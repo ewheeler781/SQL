@@ -1,0 +1,5 @@
+--begin project
+SELECT *
+FROM superstore
+ORDER BY price
+;
