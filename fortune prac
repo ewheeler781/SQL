@@ -60,9 +60,17 @@ VALUES
 
 # Analysis: 
 
--- 1. Which companies have healthcare benefits -and- at least 14 paid time off days? [filter using WHERE with AND, OR, IN, or NOT IN]
+-- 1. Which companies have healthcare benefits -and- at least 14 paid time off days?
+
 SELECT company_name
 FROM fortune_companies
 WHERE paid_time_off_days>14
 AND healthcare_benefits=1
 ;
+
+--which company in manufacturing has the highest revenue?
+
+SELECT MAX(revenue),company_name
+FROM fortune_companies
+;
+
