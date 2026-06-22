@@ -61,16 +61,29 @@ VALUES
 # Analysis: 
 
 -- 1. Which companies have healthcare benefits -and- at least 14 paid time off days?
-
 SELECT company_name
 FROM fortune_companies
 WHERE paid_time_off_days>14
 AND healthcare_benefits=1
 ;
 
---which company in manufacturing has the highest revenue?
 
+
+
+-- 2.which company in manufacturing has the highest revenue?
 SELECT MAX(revenue),company_name
 FROM fortune_companies
 ;
 
+
+
+
+-- 3.label companies in manufacturing as loyal(over7), medium(4-7), and high turnover(under4) based on average employee tenure.
+SELECT avg_employee_tenure,company_name,
+CASE 
+ WHEN avg_employee_tenure <4 THEN 'high turnover'
+ WHEN avg_employee_tenure > 7 THEN 'loyal'
+ ELSE 'medium'
+END AS employee_loyalty
+FROM fortune_companies
+;
